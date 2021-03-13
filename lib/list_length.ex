@@ -4,15 +4,22 @@ defmodule ListLength do
   """
 
   @doc """
-  Hello world.
+  Returns length of the list.
 
   ## Examples
 
-      iex> ListLength.hello()
-      :world
+      iex> ListLength.call([])
+      0
+
+      iex> ListLength.call([5, 3])
+      2
 
   """
-  def hello do
-    :world
+  def call(list), do: count_list(list, 0)
+
+  defp count_list([], counter), do: counter
+
+  defp count_list([_head | tail], counter) do
+    count_list(tail, counter + 1)
   end
 end
